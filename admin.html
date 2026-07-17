@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Mediis Health</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+        .admin-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 900px;
+        }
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+        tr:hover {
+            background-color: #f8fafc;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-pending {
+            background-color: #fef3c7;
+            color: #d97706;
+            border: 1px solid #fde68a;
+        }
+        .status-completed {
+            background-color: #dcfce3;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .btn-mark-completed {
+            background-color: #2563EB;
+            color: white;
+        }
+        .btn-mark-completed:hover {
+            background-color: #1d4ed8;
+        }
+        .btn-mark-pending {
+            background-color: #f59e0b;
+            color: white;
+        }
+        .btn-mark-pending:hover {
+            background-color: #d97706;
+        }
+        .no-data {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        .date-text {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="admin-container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1 style="margin: 0; font-size: 1.75rem;">Mediis Health Admin</h1>
+                <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Manage Patient Consultations</p>
+            </div>
+            <div>
+                <a href="index.html" style="color: white; text-decoration: none; border: 1px solid white; padding: 0.5rem 1rem; border-radius: 6px;">View Website</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-container" style="margin-bottom: 4rem;">
+        <div class="dashboard-card">
+            <h2 style="margin-top: 0; color: #1e293b; margin-bottom: 1.5rem;">Recent Consultations</h2>
+            
+            <table id="consultationsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Patient Details</th>
+                        <th>Health Conditions</th>
+                        <th>Description</th>
+                        <th>Payment ID</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr><td colspan="8" class="no-data"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        async function fetchConsultations() {
+            try {
+                const res = await fetch('/api/consultations');
+                if (!res.ok) throw new Error('Network response was not ok');
+                const data = await res.json();
+                renderTable(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                document.getElementById('tableBody').innerHTML = '<tr><td colspan="8" class="no-data text-danger">Failed to load data. Ensure the server is running.</td></tr>';
+            }
+        }
+
+        async function toggleStatus(id, currentStatus) {
+            const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
+            try {
+                const res = await fetch(`/api/consultations/${id}/status`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                
+                if (res.ok) {
+                    fetchConsultations(); // Reload the table
+                } else {
+                    alert('Failed to update status');
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('An error occurred');
+            }
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="no-data">No consultation requests found.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(row => {
+                const date = new Date(row.created_at).toLocaleString('en-IN');
+                
+                let actionButton = '';
+                if (row.status === 'pending') {
+                    actionButton = `<button class="action-btn btn-mark-completed" onclick="toggleStatus(${row.id}, 'pending')">Mark Completed</button>`;
+                } else {
+                    actionButton = `<button class="action-btn btn-mark-pending" onclick="toggleStatus(${row.id}, 'completed')">Revert to Pending</button>`;
+                }
+
+                return `
+                    <tr>
+                        <td style="font-weight: bold; color: #64748b;">#${row.id}</td>
+                        <td class="date-text">${date}</td>
+                        <td>
+                            <strong>${row.name || 'N/A'}</strong><br>
+                            <span style="font-size: 0.85rem; color: #64748b;">Age: ${row.age || '-'}</span><br>
+                            <a href="tel:${row.phone}">${row.phone}</a><br>
+                            ${row.email ? `<a href="mailto:${row.email}">${row.email}</a>` : ''}
+                        </td>
+                        <td>${row.conditions || 'None specified'}</td>
+                        <td style="max-width: 250px; white-space: pre-wrap; font-size: 0.9rem;">${row.description || 'No description'}</td>
+                        <td style="font-family: monospace; font-size: 0.85rem;">${row.razorpay_payment_id || '-'}</td>
+                        <td>
+                            <span class="status-badge status-${row.status}">
+                                ${row.status === 'pending' ? 'Pending' : 'Completed'}
+                            </span>
+                        </td>
+                        <td>${actionButton}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Initial fetch
+        fetchConsultations();
+    </script>
+</body>
+</html>

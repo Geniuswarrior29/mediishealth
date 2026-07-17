@@ -147,7 +147,17 @@
                     <textarea required placeholder="कृपया उन सभी समस्याओं को लिखें जिनका आप इस समय सामना कर रहे हैं और आप डॉक्टर से परामर्श क्यों करना चाहते हैं..."></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">विवरण सबमिट करें और बुक करें</button>
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="color: #1e40af; margin-bottom: 0.25rem;">परामर्श शुल्क</h4>
+                        <p style="font-size: 0.9rem; color: #3b82f6; margin: 0;">Razorpay द्वारा सुरक्षित भुगतान</p>
+                    </div>
+                    <div style="font-size: 1.25rem; font-weight: 700; color: #1e40af;">
+                        ₹19
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">₹19 का भुगतान करें और बुक करें</button>
             </form>
         </div>
     </section>
@@ -234,13 +244,24 @@
                     handler: async function (response) {
                         // 3. Verify Payment
                         try {
+                            // Collect form data
+                            const name = form.querySelector('input[type="text"]').value;
+                            const age = form.querySelector('input[type="number"]').value;
+                            const phone = form.querySelector('input[type="tel"]').value;
+                            const email = form.querySelector('input[type="email"]').value;
+                            
+                            const conditions = [];
+                            form.querySelectorAll('input[name="condition"]:checked').forEach(cb => conditions.push(cb.value));
+                            const description = form.querySelector('textarea').value;
+
                             const verifyRes = await fetch('/api/verify-payment', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
                                     razorpay_order_id: response.razorpay_order_id,
                                     razorpay_payment_id: response.razorpay_payment_id,
-                                    razorpay_signature: response.razorpay_signature
+                                    razorpay_signature: response.razorpay_signature,
+                                    patient: { name, age, phone, email, conditions: conditions.join(', '), description }
                                 })
                             });
                             
@@ -256,13 +277,13 @@
                             alert('सत्यापन के दौरान एक त्रुटि हुई।');
                         } finally {
                             submitBtn.disabled = false;
-                            submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                            submitBtn.innerText = '₹19 का भुगतान करें और बुक करें';
                         }
                     },
                     modal: {
                         ondismiss: function() {
                             submitBtn.disabled = false;
-                            submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                            submitBtn.innerText = '₹19 का भुगतान करें और बुक करें';
                         }
                     },
                     prefill: {
@@ -279,7 +300,7 @@
                 rzp.on('payment.failed', function (response){
                     alert('भुगतान विफल: ' + response.error.description);
                     submitBtn.disabled = false;
-                    submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                    submitBtn.innerText = '₹19 का भुगतान करें और बुक करें';
                 });
                 rzp.open();
                 
@@ -287,7 +308,7 @@
                 console.error('Error:', error);
                 alert('कुछ गलत हो गया। कृपया पुनः प्रयास करें।');
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                submitBtn.innerText = '₹19 का भुगतान करें और बुक करें';
             }
         });
     </script>

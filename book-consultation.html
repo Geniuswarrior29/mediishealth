@@ -147,7 +147,17 @@
                     <textarea required placeholder="Please write all problems you are facing this time and why you want to consult the doctor..."></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">Submit Details & Book</button>
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="color: #1e40af; margin-bottom: 0.25rem;">Consultation Fee</h4>
+                        <p style="font-size: 0.9rem; color: #3b82f6; margin: 0;">Secure payment powered by Razorpay</p>
+                    </div>
+                    <div style="font-size: 1.25rem; font-weight: 700; color: #1e40af;">
+                        ₹19
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Pay ₹19 & Book Consultation</button>
             </form>
         </div>
     </section>
@@ -234,13 +244,24 @@
                     handler: async function (response) {
                         // 3. Verify Payment
                         try {
+                            // Collect form data
+                            const name = form.querySelector('input[type="text"]').value;
+                            const age = form.querySelector('input[type="number"]').value;
+                            const phone = form.querySelector('input[type="tel"]').value;
+                            const email = form.querySelector('input[type="email"]').value;
+                            
+                            const conditions = [];
+                            form.querySelectorAll('input[name="condition"]:checked').forEach(cb => conditions.push(cb.value));
+                            const description = form.querySelector('textarea').value;
+
                             const verifyRes = await fetch('/api/verify-payment', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
                                     razorpay_order_id: response.razorpay_order_id,
                                     razorpay_payment_id: response.razorpay_payment_id,
-                                    razorpay_signature: response.razorpay_signature
+                                    razorpay_signature: response.razorpay_signature,
+                                    patient: { name, age, phone, email, conditions: conditions.join(', '), description }
                                 })
                             });
                             
@@ -256,13 +277,13 @@
                             alert('An error occurred during verification.');
                         } finally {
                             submitBtn.disabled = false;
-                            submitBtn.innerText = 'Submit Details & Book';
+                            submitBtn.innerText = 'Pay ₹19 & Book Consultation';
                         }
                     },
                     modal: {
                         ondismiss: function() {
                             submitBtn.disabled = false;
-                            submitBtn.innerText = 'Submit Details & Book';
+                            submitBtn.innerText = 'Pay ₹19 & Book Consultation';
                         }
                     },
                     prefill: {
@@ -279,7 +300,7 @@
                 rzp.on('payment.failed', function (response){
                     alert('Payment failed: ' + response.error.description);
                     submitBtn.disabled = false;
-                    submitBtn.innerText = 'Submit Details & Book';
+                    submitBtn.innerText = 'Pay ₹19 & Book Consultation';
                 });
                 rzp.open();
                 
@@ -287,7 +308,7 @@
                 console.error('Error:', error);
                 alert('Something went wrong. Please try again.');
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'Submit Details & Book';
+                submitBtn.innerText = 'Pay ₹19 & Book Consultation';
             }
         });
     </script>
