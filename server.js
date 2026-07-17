@@ -1,8 +1,5 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const Razorpay = require('razorpay');
-const crypto = require('crypto');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 
@@ -23,8 +20,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 email TEXT,
                 conditions TEXT,
                 description TEXT,
-                razorpay_order_id TEXT,
-                razorpay_payment_id TEXT,
                 status TEXT DEFAULT 'pending',
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
@@ -44,89 +39,41 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname)); // Serve static HTML files from the same directory
 
-// Initialize Razorpay instance
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
-
-// Endpoint to create an order
-app.post('/api/create-order', async (req, res) => {
+// Endpoint to submit consultation details (No payment)
+app.post('/api/submit-consultation', (req, res) => {
     try {
-        const { amount, currency, receipt } = req.body;
+        const { patient } = req.body;
 
-        if (!amount || amount < 100) {
-            return res.status(400).json({ error: 'Amount must be at least 100 paise' });
+        if (!patient) {
+            return res.status(400).json({ error: 'Missing patient data' });
         }
 
-        const options = {
-            amount: amount, // amount in the smallest currency unit
-            currency: currency || "INR",
-            receipt: receipt || `receipt_${Date.now()}`
-        };
-
-        const order = await razorpay.orders.create(options);
-        res.json({
-            order_id: order.id,
-            amount: order.amount,
-            currency: order.currency
-        });
-    } catch (error) {
-        console.error("Razorpay Error:", error);
-        res.status(500).json({ error: 'Failed to create order' });
-    }
-});
-
-// Endpoint to verify payment signature
-app.post('/api/verify-payment', (req, res) => {
-    try {
-        const { razorpay_order_id, razorpay_payment_id, razorpay_signature, patient } = req.body;
-
-        if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
-            return res.status(400).json({ error: 'Missing required fields' });
-        }
-
-        const body = razorpay_order_id + "|" + razorpay_payment_id;
-
-        const expectedSignature = crypto
-            .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
-            .update(body.toString())
-            .digest('hex');
-
-        if (expectedSignature === razorpay_signature) {
-            // Insert patient data into database
-            if (patient) {
-                const stmt = db.prepare(`
-                    INSERT INTO consultations (name, age, phone, email, conditions, description, razorpay_order_id, razorpay_payment_id)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                `);
-                stmt.run(
-                    patient.name,
-                    patient.age,
-                    patient.phone,
-                    patient.email,
-                    patient.conditions,
-                    patient.description,
-                    razorpay_order_id,
-                    razorpay_payment_id,
-                    function(err) {
-                        if (err) {
-                            console.error("Database insert error:", err);
-                        } else {
-                            console.log("Patient record saved with ID:", this.lastID);
-                        }
-                    }
-                );
-                stmt.finalize();
+        const stmt = db.prepare(`
+            INSERT INTO consultations (name, age, phone, email, conditions, description)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `);
+        stmt.run(
+            patient.name,
+            patient.age,
+            patient.phone,
+            patient.email,
+            patient.conditions,
+            patient.description,
+            function(err) {
+                if (err) {
+                    console.error("Database insert error:", err);
+                    res.status(500).json({ error: 'Failed to save consultation' });
+                } else {
+                    console.log("Patient record saved with ID:", this.lastID);
+                    res.json({ success: true, message: 'Consultation submitted successfully' });
+                }
             }
+        );
+        stmt.finalize();
 
-            res.json({ success: true, message: 'Payment verified successfully' });
-        } else {
-            res.status(400).json({ success: false, error: 'Invalid signature' });
-        }
     } catch (error) {
-        console.error("Verification Error:", error);
-        res.status(500).json({ error: 'Internal server error during verification' });
+        console.error("Submission Error:", error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 
