@@ -144,7 +144,7 @@
     <script>
         async function fetchConsultations() {
             try {
-                const res = await fetch('/api/consultations');
+                const res = await fetch('https://mediishealth-backend.onrender.com/api/consultations');
                 if (!res.ok) throw new Error('Network response was not ok');
                 const data = await res.json();
                 renderTable(data);
@@ -157,7 +157,7 @@
         async function toggleStatus(id, currentStatus) {
             const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
             try {
-                const res = await fetch(`/api/consultations/${id}/status`, {
+                const res = await fetch(`https://mediishealth-backend.onrender.com/api/consultations/${id}/status`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ status: newStatus })

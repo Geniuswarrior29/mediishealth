@@ -221,7 +221,7 @@
                 submitBtn.innerText = 'प्रोसेस हो रहा है...';
 
                 // 1. Create order (Rs 19 = 1900 paise)
-                const response = await fetch('/api/create-order', {
+                const response = await fetch('https://mediishealth-backend.onrender.com/api/create-order', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ amount: 1900 })
@@ -254,7 +254,7 @@
                             form.querySelectorAll('input[name="condition"]:checked').forEach(cb => conditions.push(cb.value));
                             const description = form.querySelector('textarea').value;
 
-                            const verifyRes = await fetch('/api/verify-payment', {
+                            const verifyRes = await fetch('https://mediishealth-backend.onrender.com/api/verify-payment', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
