@@ -20,15 +20,16 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 email TEXT,
                 conditions TEXT,
                 description TEXT,
+                address TEXT,
                 status TEXT DEFAULT 'pending',
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         `, (err) => {
             if (!err) {
                 // Try to add the status column in case the table already existed before this update
-                db.run(`ALTER TABLE consultations ADD COLUMN status TEXT DEFAULT 'pending'`, (alterErr) => {
-                    // Ignore alterErr because it simply means the column already exists
-                });
+                db.run(`ALTER TABLE consultations ADD COLUMN status TEXT DEFAULT 'pending'`, (alterErr) => {});
+                // Try to add the address column
+                db.run(`ALTER TABLE consultations ADD COLUMN address TEXT`, (alterErr) => {});
             }
         });
     }
@@ -49,8 +50,8 @@ app.post('/api/submit-consultation', (req, res) => {
         }
 
         const stmt = db.prepare(`
-            INSERT INTO consultations (name, age, phone, email, conditions, description)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO consultations (name, age, phone, email, conditions, description, address)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
         `);
         stmt.run(
             patient.name,
@@ -59,6 +60,7 @@ app.post('/api/submit-consultation', (req, res) => {
             patient.email,
             patient.conditions,
             patient.description,
+            patient.address || '',
             function(err) {
                 if (err) {
                     console.error("Database insert error:", err);

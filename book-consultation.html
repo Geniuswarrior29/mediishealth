@@ -143,6 +143,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Select your address (Optional)</label>
+                    <select name="address" style="width: 100%; padding: 0.8rem; border: 1px solid #d1d5db; border-radius: 8px; font-family: inherit; font-size: 1rem; color: #374151;">
+                        <option value="">-- Select Address --</option>
+                        <option value="Raebareli">Raebareli</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Fatehpur">Fatehpur</option>
+                        <option value="Bachrawan">Bachrawan</option>
+                        <option value="Lalganj">Lalganj</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label>Describe your problems in detail *</label>
                     <textarea required placeholder="Please write all problems you are facing this time and why you want to consult the doctor..."></textarea>
                 </div>
@@ -218,12 +230,13 @@
                 const conditions = [];
                 form.querySelectorAll('input[name="condition"]:checked').forEach(cb => conditions.push(cb.value));
                 const description = form.querySelector('textarea').value;
+                const address = form.querySelector('select[name="address"]').value;
 
                 const response = await fetch('https://mediishealth-backend.onrender.com/api/submit-consultation', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        patient: { name, age, phone, email, conditions: conditions.join(', '), description }
+                        patient: { name, age, phone, email, conditions: conditions.join(', '), description, address }
                     })
                 });
                 

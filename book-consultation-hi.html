@@ -143,6 +143,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label>अपना पता चुनें (वैकल्पिक)</label>
+                    <select name="address" style="width: 100%; padding: 0.8rem; border: 1px solid #d1d5db; border-radius: 8px; font-family: inherit; font-size: 1rem; color: #374151;">
+                        <option value="">-- पता चुनें --</option>
+                        <option value="Raebareli">रायबरेली (Raebareli)</option>
+                        <option value="Lucknow">लखनऊ (Lucknow)</option>
+                        <option value="Fatehpur">फतेहपुर (Fatehpur)</option>
+                        <option value="Bachrawan">बछरावां (Bachrawan)</option>
+                        <option value="Lalganj">लालगंज (Lalganj)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label>अपनी समस्याओं का विस्तार से वर्णन करें *</label>
                     <textarea required placeholder="कृपया उन सभी समस्याओं को लिखें जिनका आप इस समय सामना कर रहे हैं और आप डॉक्टर से परामर्श क्यों करना चाहते हैं..."></textarea>
                 </div>
@@ -228,12 +240,13 @@
                 const conditions = [];
                 form.querySelectorAll('input[name="condition"]:checked').forEach(cb => conditions.push(cb.value));
                 const description = form.querySelector('textarea').value;
+                const address = form.querySelector('select[name="address"]').value;
 
                 const response = await fetch('https://mediishealth-backend.onrender.com/api/submit-consultation', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        patient: { name, age, phone, email, conditions: conditions.join(', '), description }
+                        patient: { name, age, phone, email, conditions: conditions.join(', '), description, address }
                     })
                 });
                 
