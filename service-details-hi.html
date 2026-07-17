@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सेवा विवरण - Mediis Health Ayurveda</title>
+    <meta name="description" content="हमारी प्रमुख सेवाओं के बारे में विस्तृत जानकारी: टेली-परामर्श, आयुष्मान कार्ड, सर्जरी मार्गदर्शन, और सीएम फंड सहायता।">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .service-section:last-child {
+            border-bottom: none;
+        }
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .service-section:nth-child(even) .service-content {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+        .service-section:nth-child(even) .service-text {
+            direction: ltr;
+        }
+        .service-text h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        .service-text h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .service-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .service-text ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .service-text ul li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+        .service-text ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .service-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .service-content, .service-section:nth-child(even) .service-content {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container" style="display: flex; justify-content: space-between;">
+            <div>
+                <span>📞 +91 8738851621</span>
+                <span style="margin-left: 1rem;">✉️ arun81.lko@gmail.com</span>
+            </div>
+            <div>
+                <span>सोम - शनि: सुबह 9:00 - शाम 6:00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index-hi.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary)"><path d="M11 2v4c0 1.1-.9 2-2 2H5v4h4c1.1 0 2 .9 2 2v4h2v-4c0-1.1.9-2 2-2h4v-4h-4c-1.1 0-2-.9-2-2V2h-2z"/></svg>
+                Mediis Health
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index-hi.html">मुख्य पृष्ठ</a>
+                <a href="services-hi.html" class="active">सेवाएं</a>
+                <a href="about-hi.html">हमारे बारे में</a>
+                <a href="blog-hi.html">ब्लॉग</a>
+                <a href="contact-hi.html">संपर्क करें</a>
+            </nav>
+
+            <div class="header-actions">
+                <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;" onchange="if(this.value === 'en') window.location.href='service-details.html'">
+                    <option value="en">Eng</option>
+                    <option value="hi" selected>हिन्दी</option>
+                </select>
+                <a href="book-consultation-hi.html" class="btn btn-primary">परामर्श बुक करें</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 4rem 0; text-align: center; margin-top: 2rem;">
+        <div class="container fade-in-up">
+            <h1>हमारी प्रमुख सेवाएं विस्तार से</h1>
+            <p>जानें कि हमारे विशेष प्लेटफॉर्म आपकी स्वास्थ्य यात्रा में आपकी कैसे सहायता कर सकते हैं।</p>
+        </div>
+    </section>
+
+    <!-- Services Details -->
+    <div class="container">
+        
+        <!-- Tele-consultation -->
+        <section id="tele-consultation" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>🌿 टेली-परामर्श (Tele-consultation)</h2>
+                    <h3>घर बैठे विशेषज्ञ आयुर्वेदिक देखभाल</h3>
+                    <p>मेडीस हेल्थ में, हमारा मानना है कि उच्च गुणवत्ता वाली स्वास्थ्य देखभाल सभी के लिए सुलभ होनी चाहिए, चाहे वे कहीं भी रहते हों। हमारी टेली-परामर्श सेवा आपको देश के कुछ सबसे अनुभवी आयुर्वेदिक डॉक्टरों और क्लिनिकल पोषण विशेषज्ञों से जोड़ती है।</p>
+                    <p>चाहे आप मधुमेह, उच्च रक्तचाप, गठिया, या पाचन समस्याओं जैसी पुरानी बीमारियों से जूझ रहे हों, हमारे विशेषज्ञ विशेष रूप से आपके शरीर के प्रकार (प्रकृति) और जीवन शैली के अनुरूप एक समग्र उपचार योजना प्रदान करेंगे।</p>
+                    <ul>
+                        <li>1-ऑन-1 व्यक्तिगत वीडियो परामर्श।</li>
+                        <li>आयुर्वेदिक सिद्धांतों पर आधारित अनुकूलित आहार और पोषण योजनाएं।</li>
+                        <li>सुरक्षित, प्राकृतिक और अत्यधिक प्रभावी हर्बल नुस्खे।</li>
+                        <li>प्रगति को ट्रैक करने और उपचार को समायोजित करने के लिए फॉलो-अप सत्र।</li>
+                    </ul>
+                    <a href="book-consultation-hi.html" class="btn btn-primary" style="margin-top: 1rem;">परामर्श बुक करें</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tele-consultation" class="service-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Ayushman Card -->
+        <section id="ayushman-card" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>💳 आयुष्मान कार्ड सहायता</h2>
+                    <h3>आसानी से अपने स्वास्थ्य लाभ प्राप्त करें</h3>
+                    <p>आयुष्मान भारत योजना सार्वभौमिक स्वास्थ्य कवरेज की दिशा में एक क्रांतिकारी कदम है, लेकिन पात्रता मानदंड और अस्पताल नेटवर्क को समझना भ्रामक हो सकता है। हम सभी आयुष्मान कार्ड प्रश्नों के लिए आपके समर्पित डेस्क के रूप में कार्य करते हैं।</p>
+                    <p>हम आपको आपके लाभों को समझने, आपकी पात्रता की जांच करने और मुफ्त उपचार और सर्जरी के लिए सही सूचीबद्ध अस्पतालों से जुड़ने में मदद करते हैं।</p>
+                    <ul>
+                        <li>तत्काल पात्रता और केवाईसी स्थिति की जांच।</li>
+                        <li>कवर की गई बीमारियों और उपचार पैकेजों पर मार्गदर्शन।</li>
+                        <li>आस-पास के शीर्ष-रेटेड सूचीबद्ध अस्पतालों को खोजने में सहायता।</li>
+                        <li>योजना के तहत प्रवेश प्रक्रिया में चरण-दर-चरण मदद।</li>
+                    </ul>
+                    <a href="contact-hi.html" class="btn btn-outline" style="margin-top: 1rem;">अभी सहायता प्राप्त करें</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ayushman Card Support" class="service-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Surgery Guidance -->
+        <section id="surgery-guidance" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>🏥 सर्जरी मार्गदर्शन</h2>
+                    <h3>अपने ऑपरेशन के बारे में सही निर्णय लें</h3>
+                    <p>सर्जरी का सामना करना एक तनावपूर्ण और भारी अनुभव हो सकता है। मेडीस हेल्थ में, हम अनुशंसित ऑपरेशनों के संबंध में निष्पक्ष, महत्वपूर्ण जानकारी चाहने वाले मरीजों के लिए एक विश्वसनीय डेस्क प्रदान करते हैं।</p>
+                    <p>हमारे चिकित्सा विशेषज्ञ आपके मामले की समीक्षा करते हैं, सर्जरी के जोखिमों और लाभों की व्याख्या करते हैं, और यह पता लगाने में आपकी मदद करते हैं कि क्या वैकल्पिक आयुर्वेदिक या गैर-आक्रामक उपचार व्यवहार्य हैं। यदि सर्जरी आवश्यक है, तो हम आपको सर्वश्रेष्ठ सर्जनों और सुविधाओं के लिए मार्गदर्शन करते हैं।</p>
+                    <ul>
+                        <li>अनुशंसित सर्जरी पर दूसरी राय (Second Opinion)।</li>
+                        <li>सर्जिकल प्रक्रिया और रिकवरी समयरेखा की विस्तृत व्याख्या।</li>
+                        <li>आयुर्वेदिक पोस्ट-सर्जरी पुनर्वास की खोज।</li>
+                        <li>सफलता दर और लागत के आधार पर अस्पताल चयन में सहायता।</li>
+                    </ul>
+                    <a href="contact-hi.html" class="btn btn-primary" style="margin-top: 1rem;">विशेषज्ञ से बात करें</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Surgery Guidance" class="service-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- CM Fund Assistance -->
+        <section id="cm-fund" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>🤝 सीएम फंड सहायता</h2>
+                    <h3>महत्वपूर्ण उपचार के लिए वित्तीय मार्गदर्शन</h3>
+                    <p>महंगी सर्जरी या गंभीर देखभाल की आवश्यकता वाले गरीब मरीजों के लिए, वित्तीय बाधाओं को जीवन रक्षक चिकित्सा उपचारों के रास्ते में कभी नहीं आना चाहिए। मुख्यमंत्री राहत कोष महत्वपूर्ण सहायता प्रदान करता है।</p>
+                    <p>हमारी टीम आपको जटिल आवेदन प्रक्रिया के माध्यम से मार्गदर्शन करती है, यह सुनिश्चित करते हुए कि आपके पास सरकारी स्वास्थ्य निधि के लिए सफलतापूर्वक आवेदन करने के लिए आवश्यक सही दस्तावेज, अनुमान और फॉर्म हैं।</p>
+                    <ul>
+                        <li>आवश्यक दस्तावेजों की विस्तृत सूची (आय प्रमाण पत्र, आधार, आदि)।</li>
+                        <li>अधिकृत अस्पतालों से उचित चिकित्सा अनुमान प्राप्त करने में सहायता।</li>
+                        <li>आवेदन भरने और जमा करने पर चरण-दर-चरण मार्गदर्शन।</li>
+                        <li>आपके आवेदन की स्थिति को ट्रैक करने के लिए फॉलो-अप रणनीतियां।</li>
+                    </ul>
+                    <a href="contact-hi.html" class="btn btn-outline" style="margin-top: 1rem;">अपना आवेदन शुरू करें</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CM Fund Assistance" class="service-image">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index-hi.html" class="logo" style="color: white;">मेडीस हेल्थ</a>
+                    <p>पुरानी बीमारियों, सर्जरी और धन सहायता के लिए विशेषज्ञ आयुर्वेदिक टेली-परामर्श और मार्गदर्शन प्रदान करना।</p>
+                </div>
+                <div>
+                    <h4>त्वरित लिंक</h4>
+                    <ul class="footer-links">
+                        <li><a href="about-hi.html">हमारे बारे में</a></li>
+                        <li><a href="services-hi.html">हमारी सेवाएं</a></li>
+                        <li><a href="blog-hi.html">नवीनतम ब्लॉग</a></li>
+                        <li><a href="contact-hi.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सेवाएं</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tele-consultation">टेली-परामर्श</a></li>
+                        <li><a href="#ayushman-card">आयुष्मान कार्ड प्रश्न</a></li>
+                        <li><a href="#cm-fund">सीएम फंड सहायता</a></li>
+                        <li><a href="#surgery-guidance">सर्जरी मार्गदर्शन</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>जुड़ें</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2024 Mediis Health. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

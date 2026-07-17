@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - Mediis Health Ayurveda</title>
+    <meta name="description" content="Detailed information about our core offerings: Tele-consultation, Ayushman Card, Surgery Guidance, and CM Fund Assistance.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .service-section:last-child {
+            border-bottom: none;
+        }
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .service-section:nth-child(even) .service-content {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+        .service-section:nth-child(even) .service-text {
+            direction: ltr;
+        }
+        .service-text h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        .service-text h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .service-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .service-text ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .service-text ul li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+        .service-text ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        .service-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .service-content, .service-section:nth-child(even) .service-content {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container" style="display: flex; justify-content: space-between;">
+            <div>
+                <span>📞 +91 8738851621</span>
+                <span style="margin-left: 1rem;">✉️ arun81.lko@gmail.com</span>
+            </div>
+            <div>
+                <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary)"><path d="M11 2v4c0 1.1-.9 2-2 2H5v4h4c1.1 0 2 .9 2 2v4h2v-4c0-1.1.9-2 2-2h4v-4h-4c-1.1 0-2-.9-2-2V2h-2z"/></svg>
+                Mediis Health
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;" onchange="if(this.value === 'hi') window.location.href='service-details-hi.html'">
+                    <option value="en" selected>Eng</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+                <a href="book-consultation.html" class="btn btn-primary">Book Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="padding: 4rem 0; text-align: center; margin-top: 2rem;">
+        <div class="container fade-in-up">
+            <h1>Our Core Services in Detail</h1>
+            <p>Explore how our specialized platforms can assist you in your healthcare journey.</p>
+        </div>
+    </section>
+
+    <!-- Services Details -->
+    <div class="container">
+        
+        <!-- Tele-consultation -->
+        <section id="tele-consultation" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>🌿 Tele-consultation</h2>
+                    <h3>Expert Ayurvedic Care from Home</h3>
+                    <p>At Mediis Health, we believe that high-quality healthcare should be accessible to everyone, no matter where they live. Our Tele-consultation service connects you with some of the most experienced Ayurvedic doctors and clinical nutritionists in the country.</p>
+                    <p>Whether you are dealing with chronic conditions like Diabetes, Hypertension, Arthritis, or digestive issues, our specialists will provide a holistic treatment plan tailored specifically to your body type (Prakriti) and lifestyle.</p>
+                    <ul>
+                        <li>1-on-1 personalized video consultations.</li>
+                        <li>Customized diet and nutrition plans based on Ayurvedic principles.</li>
+                        <li>Safe, natural, and highly effective herbal prescriptions.</li>
+                        <li>Follow-up sessions to track progress and adjust treatments.</li>
+                    </ul>
+                    <a href="book-consultation.html" class="btn btn-primary" style="margin-top: 1rem;">Book a Consultation</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tele-consultation" class="service-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Ayushman Card -->
+        <section id="ayushman-card" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>💳 Ayushman Card Support</h2>
+                    <h3>Navigate Your Healthcare Benefits with Ease</h3>
+                    <p>The Ayushman Bharat scheme is a revolutionary step towards universal health coverage, but navigating the eligibility criteria and hospital networks can be confusing. We act as your dedicated desk for all Ayushman Card queries.</p>
+                    <p>We help you understand your benefits, check your eligibility, and connect you with the right empanelled hospitals for free treatments and surgeries.</p>
+                    <ul>
+                        <li>Instant eligibility and KYC status checks.</li>
+                        <li>Guidance on covered diseases and treatment packages.</li>
+                        <li>Assistance in finding top-rated empanelled hospitals nearby.</li>
+                        <li>Step-by-step help with the admission process under the scheme.</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="margin-top: 1rem;">Get Support Now</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ayushman Card Support" class="service-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Surgery Guidance -->
+        <section id="surgery-guidance" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>🏥 Surgery Guidance</h2>
+                    <h3>Make Informed Decisions About Your Operation</h3>
+                    <p>Facing surgery can be a stressful and overwhelming experience. At Mediis Health, we provide a reliable desk for patients seeking unbiased, crucial information regarding recommended operations.</p>
+                    <p>Our medical experts review your case, explain the risks and benefits of the surgery, and help you explore if alternative Ayurvedic or non-invasive treatments are viable. If surgery is necessary, we guide you to the best surgeons and facilities.</p>
+                    <ul>
+                        <li>Second opinions on recommended surgeries.</li>
+                        <li>Detailed explanation of the surgical procedure and recovery timeline.</li>
+                        <li>Exploration of Ayurvedic post-surgery rehabilitation.</li>
+                        <li>Assistance in hospital selection based on success rates and costs.</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Speak to an Expert</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Surgery Guidance" class="service-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- CM Fund Assistance -->
+        <section id="cm-fund" class="service-section fade-in-up">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>🤝 CM Fund Assistance</h2>
+                    <h3>Financial Guidance for Crucial Treatments</h3>
+                    <p>Financial constraints should never stand in the way of life-saving medical treatments. For underprivileged patients requiring expensive surgeries or chronic care, the Chief Minister's Relief Fund provides vital support.</p>
+                    <p>Our team guides you through the complex application process, ensuring you have the correct documentation, estimates, and forms required to successfully apply for government health funds.</p>
+                    <ul>
+                        <li>Detailed checklist of required documents (Income certificate, Aadhaar, etc.).</li>
+                        <li>Assistance in obtaining proper medical estimates from authorized hospitals.</li>
+                        <li>Step-by-step guidance on filling and submitting the application.</li>
+                        <li>Follow-up strategies to track the status of your application.</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="margin-top: 1rem;">Start Your Application</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CM Fund Assistance" class="service-image">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="color: white;">Mediis Health</a>
+                    <p>Providing expert ayurvedic tele-consultation and guidance for chronic diseases, surgeries, and funding assistance.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="blog.html">Latest Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#tele-consultation">Tele-Consultation</a></li>
+                        <li><a href="#ayushman-card">Ayushman Card Queries</a></li>
+                        <li><a href="#cm-fund">CM Fund Assistance</a></li>
+                        <li><a href="#surgery-guidance">Surgery Guidance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2024 Mediis Health. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

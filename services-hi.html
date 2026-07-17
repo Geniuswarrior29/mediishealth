@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हमारी सेवाएं | मेडीस हेल्थ आयुर्वेद</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
+        .modal-content { background: var(--surface); padding: 2.5rem; border-radius: 16px; width: 100%; max-width: 400px; position: relative; animation: fadeInUp 0.3s ease-out; }
+        .close-modal { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container flex-between">
+            <a href="index-hi.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary)"><path d="M11 2v4c0 1.1-.9 2-2 2H5v4h4c1.1 0 2 .9 2 2v4h2v-4c0-1.1.9-2 2-2h4v-4h-4c-1.1 0-2-.9-2-2V2h-2z"/></svg>
+                मेडीस हेल्थ
+            </a>
+            <nav class="nav-links">
+                <a href="index-hi.html">मुख्य पृष्ठ</a>
+                <a href="services-hi.html" class="active">सेवाएं</a>
+                <a href="about-hi.html">हमारे बारे में</a>
+                <a href="blog-hi.html">ब्लॉग</a>
+                <a href="contact-hi.html">संपर्क करें</a>
+            </nav>
+            <div class="header-actions">
+                <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;"><option value="en">Eng</option><option value="hi" selected>हिन्दी</option></select>
+                <button class="btn btn-primary" id="loginBtn">लॉगिन / साइन अप</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 style="margin-bottom: 1.5rem;">वापसी पर स्वागत है</h2>
+            <form id="loginForm">
+                <div class="form-group"><label>ईमेल या फोन</label><input type="text" required placeholder="ईमेल या फोन दर्ज करें (+91)"></div>
+                <div class="form-group"><label>पासवर्ड</label><input type="password" required placeholder="अपना पासवर्ड दर्ज करें"></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">लॉगिन करें</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <section class="hero" style="padding: 4rem 0; text-align: center; margin-top: 2rem;">
+        <div class="container fade-in-up">
+            <h1>हमारी सेवाएं</h1>
+            <p>व्यापक आयुर्वेदिक और स्वास्थ्य सेवा मार्गदर्शन।</p>
+        </div>
+    </section>
+
+    <section class="section container">
+        <div class="grid-2 fade-in-up" style="animation-delay: 0.2s;">
+            <div class="card">
+                <div class="card-icon">🌿</div>
+                <h3>आयुर्वेदिक टेली-परामर्श</h3>
+                <p>आयुर्वेदिक दवाओं के साथ उपचार चाहने वाले पुराने रोगों के लिए हमारे पैनलबद्ध विशेषज्ञ डॉक्टरों और पोषण विशेषज्ञों से परामर्श लें। अपने घर के आराम से व्यक्तिगत आहार और जीवन शैली की योजनाएँ प्राप्त करें।</p>
+                <button class="btn btn-outline" style="margin-top:1rem;">परामर्श बुक करें</button>
+            </div>
+            <div class="card">
+                <div class="card-icon">💳</div>
+                <h3>आयुष्मान कार्ड से संबंधित प्रश्न</h3>
+                <p>आयुष्मान कार्ड से संबंधित सभी प्रश्नों को हल करने के लिए एक समर्पित मंच। हम आपको आपकी पात्रता, लाभों और प्रभावी ढंग से अपने स्वास्थ्य कवरेज का दावा करने का तरीका समझने में मदद करते हैं।</p>
+                <button class="btn btn-outline" style="margin-top:1rem;">पात्रता जांचें</button>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h3>सर्जरी सूचना डेस्क</h3>
+                <p>ऑपरेशन या सर्जरी से संबंधित जानकारी चाहने वाले मरीजों के लिए सही डेस्क प्रदान करना। हम आपको प्रक्रियाओं, जोखिमों और आवश्यक तैयारियों के माध्यम से मार्गदर्शन करते हैं।</p>
+                <button class="btn btn-outline" style="margin-top:1rem;">मार्गदर्शन प्राप्त करें</button>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>सीएम फंड सहायता</h3>
+                <p>हम उन गरीब लोगों को समर्पित मार्गदर्शन प्रदान करते हैं जो अपने इलाज के लिए मुख्यमंत्री फंड सहायता मांग रहे हैं। हमारी टीम कागजी कार्रवाई और आवेदन प्रक्रिया में मदद करती है।</p>
+                <button class="btn btn-outline" style="margin-top:1rem;">सहायता के लिए आवेदन करें</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index-hi.html" class="logo" style="color: white;">मेडीस हेल्थ</a>
+                    <p>पुरानी बीमारियों, सर्जरी और धन सहायता के लिए विशेषज्ञ आयुर्वेदिक टेली-परामर्श और मार्गदर्शन प्रदान करना।</p>
+                </div>
+                <div>
+                    <h4>त्वरित लिंक</h4>
+                    <ul class="footer-links">
+                        <li><a href="about-hi.html">हमारे बारे में</a></li>
+                        <li><a href="services-hi.html">हमारी सेवाएं</a></li>
+                        <li><a href="blog-hi.html">नवीनतम ब्लॉग</a></li>
+                        <li><a href="contact-hi.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul class="footer-links"><li><a href="#">सामान्य प्रश्न (FAQ)</a></li><li><a href="#">गोपनीयता नीति</a></li><li><a href="#">सेवा की शर्तें</a></li></ul>
+                </div>
+                <div>
+                    <h4>न्यूज़लेटर</h4>
+                    <form class="newsletter-form"><input type="email" placeholder="आपका ईमेल" required><button type="submit">जुड़ें</button></form>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 मेडीस हेल्थ आयुर्वेद। सर्वाधिकार सुरक्षित।</p></div>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

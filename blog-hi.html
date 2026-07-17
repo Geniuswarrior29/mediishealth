@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ब्लॉग और अंतर्दृष्टि | मेडीस हेल्थ आयुर्वेद</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
+        .modal-content { background: var(--surface); padding: 2.5rem; border-radius: 16px; width: 100%; max-width: 400px; position: relative; animation: fadeInUp 0.3s ease-out; }
+        .close-modal { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .blog-card { border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow-md); transition: var(--transition); border: 1px solid var(--border); }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .blog-card img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-card-content { padding: 1.5rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container flex-between">
+            <a href="index-hi.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary)"><path d="M11 2v4c0 1.1-.9 2-2 2H5v4h4c1.1 0 2 .9 2 2v4h2v-4c0-1.1.9-2 2-2h4v-4h-4c-1.1 0-2-.9-2-2V2h-2z"/></svg>
+                मेडीस हेल्थ
+            </a>
+            <nav class="nav-links">
+                <a href="index-hi.html">मुख्य पृष्ठ</a>
+                <a href="services-hi.html">सेवाएं</a>
+                <a href="about-hi.html">हमारे बारे में</a>
+                <a href="blog-hi.html" class="active">ब्लॉग</a>
+                <a href="contact-hi.html">संपर्क करें</a>
+            </nav>
+            <div class="header-actions">
+                <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;"><option value="en">Eng</option><option value="hi" selected>हिन्दी</option></select>
+                <button class="btn btn-primary" id="loginBtn">लॉगिन / साइन अप</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 style="margin-bottom: 1.5rem;">वापसी पर स्वागत है</h2>
+            <form id="loginForm">
+                <div class="form-group"><label>ईमेल या फोन</label><input type="text" required placeholder="ईमेल या फोन दर्ज करें (+91)"></div>
+                <div class="form-group"><label>पासवर्ड</label><input type="password" required placeholder="अपना पासवर्ड दर्ज करें"></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">लॉगिन करें</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <section class="hero" style="padding: 4rem 0; text-align: center; margin-top: 2rem;">
+        <div class="container fade-in-up">
+            <h1>ब्लॉग और अंतर्दृष्टि</h1>
+            <p>आयुर्वेद, कल्याण और स्वास्थ्य देखभाल नीतियों पर नवीनतम लेख पढ़ें।</p>
+        </div>
+    </section>
+
+    <section class="section container">
+        <div class="grid-3 fade-in-up" style="animation-delay: 0.2s;">
+            <div class="blog-card">
+                <div style="background: var(--accent); height: 200px; display:flex; justify-content:center; align-items:center; font-size:3rem;">🌿</div>
+                <div class="blog-card-content">
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">16 जुलाई, 2026</span>
+                    <h3 style="margin: 0.5rem 0;">पुरानी सूजन के लिए आयुर्वेदिक आहार</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">जानें कि कैसे पारंपरिक भारतीय जड़ी-बूटियाँ और एक अनुकूलित आहार स्वाभाविक रूप से जोड़ों के दर्द को कम कर सकते हैं...</p>
+                    <a href="#" style="color: var(--primary); font-weight: 600;">पूरा पढ़ें &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div style="background: var(--accent); height: 200px; display:flex; justify-content:center; align-items:center; font-size:3rem;">💳</div>
+                <div class="blog-card-content">
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">10 जुलाई, 2026</span>
+                    <h3 style="margin: 0.5rem 0;">आयुष्मान भारत कार्ड के लिए आवेदन कैसे करें</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">अपनी पात्रता को समझने और सरकारी स्वास्थ्य योजना के लिए पंजीकरण करने के लिए चरण-दर-चरण मार्गदर्शिका...</p>
+                    <a href="#" style="color: var(--primary); font-weight: 600;">पूरा पढ़ें &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div style="background: var(--accent); height: 200px; display:flex; justify-content:center; align-items:center; font-size:3rem;">🤝</div>
+                <div class="blog-card-content">
+                    <span style="color: var(--text-muted); font-size: 0.875rem;">02 जुलाई, 2026</span>
+                    <h3 style="margin: 0.5rem 0;">सीएम राहत कोष को समझना</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">सर्जिकल वित्तीय सहायता के लिए आवेदन करने के लिए आवश्यक दस्तावेजों को समझना...</p>
+                    <a href="#" style="color: var(--primary); font-weight: 600;">पूरा पढ़ें &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index-hi.html" class="logo" style="color: white;">मेडीस हेल्थ</a>
+                    <p>पुरानी बीमारियों, सर्जरी और धन सहायता के लिए विशेषज्ञ आयुर्वेदिक टेली-परामर्श और मार्गदर्शन प्रदान करना।</p>
+                </div>
+                <div>
+                    <h4>त्वरित लिंक</h4>
+                    <ul class="footer-links">
+                        <li><a href="about-hi.html">हमारे बारे में</a></li>
+                        <li><a href="services-hi.html">हमारी सेवाएं</a></li>
+                        <li><a href="blog-hi.html">नवीनतम ब्लॉग</a></li>
+                        <li><a href="contact-hi.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul class="footer-links"><li><a href="#">सामान्य प्रश्न (FAQ)</a></li><li><a href="#">गोपनीयता नीति</a></li><li><a href="#">सेवा की शर्तें</a></li></ul>
+                </div>
+                <div>
+                    <h4>न्यूज़लेटर</h4>
+                    <form class="newsletter-form"><input type="email" placeholder="आपका ईमेल" required><button type="submit">जुड़ें</button></form>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 मेडीस हेल्थ आयुर्वेद। सर्वाधिकार सुरक्षित।</p></div>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

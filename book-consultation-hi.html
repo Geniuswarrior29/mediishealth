@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>परामर्श बुक करें - Mediis Health Ayurveda</title>
+    <meta name="description" content="हमारे डॉक्टरों के साथ विशेषज्ञ आयुर्वेदिक टेली-परामर्श बुक करें।">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-group input[type="text"], 
+        .form-group input[type="email"], 
+        .form-group input[type="tel"],
+        .form-group input[type="number"],
+        .form-group select, 
+        .form-group textarea {
+            width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; outline: none; font-family: inherit;
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+            padding: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .checkbox-item input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container" style="display: flex; justify-content: space-between;">
+            <div>
+                <span>📞 +91 8738851621</span>
+                <span style="margin-left: 1rem;">✉️ arun81.lko@gmail.com</span>
+            </div>
+            <div>
+                <span>सोम - शनि: सुबह 9:00 - शाम 6:00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index-hi.html" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary)"><path d="M11 2v4c0 1.1-.9 2-2 2H5v4h4c1.1 0 2 .9 2 2v4h2v-4c0-1.1.9-2 2-2h4v-4h-4c-1.1 0-2-.9-2-2V2h-2z"/></svg>
+                Mediis Health
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index-hi.html">मुख्य पृष्ठ</a>
+                <a href="services-hi.html">सेवाएं</a>
+                <a href="about-hi.html">हमारे बारे में</a>
+                <a href="blog-hi.html">ब्लॉग</a>
+                <a href="contact-hi.html">संपर्क करें</a>
+            </nav>
+
+            <div class="header-actions">
+                <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;" onchange="if(this.value === 'en') window.location.href='book-consultation.html'">
+                    <option value="en">Eng</option>
+                    <option value="hi" selected>हिन्दी</option>
+                </select>
+                <a href="book-consultation-hi.html" class="btn btn-primary active">परामर्श बुक करें</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <section class="hero" style="padding: 4rem 0; text-align: center; margin-top: 2rem;">
+        <div class="container fade-in-up">
+            <h1>परामर्श बुक करें</h1>
+            <p>अपना विवरण और स्वास्थ्य संबंधी समस्याएं साझा करें ताकि हमारे विशेषज्ञ डॉक्टर आपकी सहायता कर सकें।</p>
+        </div>
+    </section>
+
+    <section class="section container">
+        <div class="fade-in-up card" style="max-width: 800px; margin: 0 auto; animation-delay: 0.2s;">
+            <form id="consultationForm">
+                <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">व्यक्तिगत विवरण</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label>पूरा नाम *</label>
+                        <input type="text" required placeholder="अपना नाम दर्ज करें">
+                    </div>
+                    <div class="form-group">
+                        <label>उम्र *</label>
+                        <input type="number" required placeholder="अपनी उम्र दर्ज करें" min="1" max="120">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label>फ़ोन नंबर *</label>
+                        <input type="tel" required placeholder="अपना फ़ोन नंबर दर्ज करें">
+                    </div>
+                    <div class="form-group">
+                        <label>ईमेल पता</label>
+                        <input type="email" placeholder="अपना ईमेल दर्ज करें (वैकल्पिक)">
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">स्वास्थ्य जानकारी</h3>
+                
+                <div class="form-group">
+                    <label>अपनी स्वास्थ्य स्थितियों का चयन करें (जो भी लागू हों) *</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Diabetes"> मधुमेह (Diabetes)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Hypertension"> उच्च रक्तचाप (BP)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Thyroid"> थायराइड</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Arthritis"> गठिया / जोड़ों का दर्द</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Digestive"> पाचन संबंधी समस्याएं</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Skin"> त्वचा रोग</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Respiratory"> श्वास संबंधी समस्याएं</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Heart"> हृदय रोग</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Neurological"> तंत्रिका संबंधी समस्याएं</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="MentalHealth"> मानसिक स्वास्थ्य (तनाव)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Kidney"> गुर्दे (Kidney) की समस्याएं</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Liver"> लीवर की समस्याएं</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="WomensHealth"> महिलाओं का स्वास्थ्य</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Fatigue"> सामान्य कमजोरी</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Weight"> वजन प्रबंधन (Weight)</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="HairLoss"> बालों का झड़ना</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="SexualWellness"> यौन स्वास्थ्य</label>
+                        <label class="checkbox-item"><input type="checkbox" name="condition" value="Other"> अन्य</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>अपनी समस्याओं का विस्तार से वर्णन करें *</label>
+                    <textarea required placeholder="कृपया उन सभी समस्याओं को लिखें जिनका आप इस समय सामना कर रहे हैं और आप डॉक्टर से परामर्श क्यों करना चाहते हैं..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;">विवरण सबमिट करें और बुक करें</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index-hi.html" class="logo" style="color: white;">Mediis Health</a>
+                    <p>पुरानी बीमारियों, सर्जरी और धन सहायता के लिए विशेषज्ञ आयुर्वेदिक टेली-परामर्श और मार्गदर्शन प्रदान करना।</p>
+                </div>
+                <div>
+                    <h4>त्वरित लिंक</h4>
+                    <ul class="footer-links">
+                        <li><a href="about-hi.html">हमारे बारे में</a></li>
+                        <li><a href="services-hi.html">हमारी सेवाएं</a></li>
+                        <li><a href="blog-hi.html">नवीनतम ब्लॉग</a></li>
+                        <li><a href="contact-hi.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सेवाएं</h4>
+                    <ul class="footer-links">
+                        <li><a href="services-hi.html">टेली-परामर्श</a></li>
+                        <li><a href="services-hi.html">आयुष्मान कार्ड प्रश्न</a></li>
+                        <li><a href="services-hi.html">मुख्यमंत्री कोष सहायता</a></li>
+                        <li><a href="services-hi.html">सर्जरी मार्गदर्शन</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>जुड़ें</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem;">
+                <p>&copy; 2024 Mediis Health. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        💬 चैट
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.getElementById('consultationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            try {
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'प्रोसेस हो रहा है...';
+
+                // 1. Create order (Rs 19 = 1900 paise)
+                const response = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount: 1900 })
+                });
+                
+                const orderData = await response.json();
+                
+                if (!orderData.order_id) {
+                    throw new Error('Failed to create order');
+                }
+                
+                // 2. Open Razorpay Checkout
+                const options = {
+                    key: "rzp_test_TEfaqJ7A5gyYYZ", // Public Key (Frontend safe)
+                    amount: orderData.amount,
+                    currency: orderData.currency,
+                    name: "Mediis Health Ayurveda",
+                    description: "Consultation Fee",
+                    order_id: orderData.order_id,
+                    handler: async function (response) {
+                        // 3. Verify Payment
+                        try {
+                            const verifyRes = await fetch('/api/verify-payment', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    razorpay_order_id: response.razorpay_order_id,
+                                    razorpay_payment_id: response.razorpay_payment_id,
+                                    razorpay_signature: response.razorpay_signature
+                                })
+                            });
+                            
+                            const verifyData = await verifyRes.json();
+                            
+                            if (verifyData.success) {
+                                alert('भुगतान सफल! आपका परामर्श अनुरोध सफलतापूर्वक सबमिट कर दिया गया है। हमारे डॉक्टर जल्द ही आपसे संपर्क करेंगे।');
+                                form.reset();
+                            } else {
+                                alert('भुगतान सत्यापन विफल रहा। कृपया पुनः प्रयास करें।');
+                            }
+                        } catch (err) {
+                            alert('सत्यापन के दौरान एक त्रुटि हुई।');
+                        } finally {
+                            submitBtn.disabled = false;
+                            submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                        }
+                    },
+                    modal: {
+                        ondismiss: function() {
+                            submitBtn.disabled = false;
+                            submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                        }
+                    },
+                    prefill: {
+                        name: form.querySelector('input[type="text"]').value,
+                        email: form.querySelector('input[type="email"]').value,
+                        contact: form.querySelector('input[type="tel"]').value
+                    },
+                    theme: {
+                        color: "#2563EB"
+                    }
+                };
+                
+                const rzp = new Razorpay(options);
+                rzp.on('payment.failed', function (response){
+                    alert('भुगतान विफल: ' + response.error.description);
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+                });
+                rzp.open();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('कुछ गलत हो गया। कृपया पुनः प्रयास करें।');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'विवरण सबमिट करें और बुक करें';
+            }
+        });
+    </script>
+</body>
+</html>
