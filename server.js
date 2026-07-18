@@ -30,6 +30,8 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 db.run(`ALTER TABLE consultations ADD COLUMN status TEXT DEFAULT 'pending'`, (alterErr) => {});
                 // Try to add the address column
                 db.run(`ALTER TABLE consultations ADD COLUMN address TEXT`, (alterErr) => {});
+                // Try to add the screenshot column
+                db.run(`ALTER TABLE consultations ADD COLUMN screenshot TEXT`, (alterErr) => {});
             }
         });
     }
@@ -37,7 +39,8 @@ const db = new sqlite3.Database(dbPath, (err) => {
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(__dirname)); // Serve static HTML files from the same directory
 
 // Endpoint to submit consultation details (No payment)
@@ -50,8 +53,8 @@ app.post('/api/submit-consultation', (req, res) => {
         }
 
         const stmt = db.prepare(`
-            INSERT INTO consultations (name, age, phone, email, conditions, description, address)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO consultations (name, age, phone, email, conditions, description, address, screenshot)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `);
         stmt.run(
             patient.name,
@@ -61,6 +64,7 @@ app.post('/api/submit-consultation', (req, res) => {
             patient.conditions,
             patient.description,
             patient.address || '',
+            patient.screenshot || '',
             function(err) {
                 if (err) {
                     console.error("Database insert error:", err);
@@ -113,6 +117,22 @@ app.post('/api/consultations/:id/status', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
+
+// DELETE Endpoint to delete a consultation
+app.delete('/api/consultations/:id', (req, res) => {
+    const id = req.params.id;
+    const stmt = db.prepare(`DELETE FROM consultations WHERE id = ?`);
+    stmt.run(id, function(err) {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Failed to delete' });
+        } else {
+            res.json({ success: true, changes: this.changes });
+        }
+    });
+    stmt.finalize();
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
     console.log(`Open http://localhost:${PORT}/book-consultation.html to test.`);

@@ -140,6 +140,7 @@
                         <th>Health Conditions</th>
                         <th>Description</th>
                         <th>Payment ID</th>
+                        <th>Screenshot</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -152,11 +153,12 @@
     </main>
 
     <script>
+        const BACKEND_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') ? 'http://localhost:3000' : 'https://mediishealth-backend.onrender.com';
         let allConsultations = [];
 
         async function fetchConsultations() {
             try {
-                const res = await fetch('https://mediishealth-backend.onrender.com/api/consultations');
+                const res = await fetch(`${BACKEND_URL}/api/consultations`);
                 if (!res.ok) throw new Error('Network response was not ok');
                 allConsultations = await res.json();
                 filterTable();
@@ -179,7 +181,7 @@
         async function toggleStatus(id, currentStatus) {
             const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
             try {
-                const res = await fetch(`https://mediishealth-backend.onrender.com/api/consultations/${id}/status`, {
+                const res = await fetch(`${BACKEND_URL}/api/consultations/${id}/status`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ status: newStatus })
@@ -192,6 +194,24 @@
                 }
             } catch (error) {
                 console.error('Error updating status:', error);
+                alert('An error occurred');
+            }
+        }
+
+        async function deleteQuery(id) {
+            if (!confirm('Are you sure you want to delete this query?')) return;
+            try {
+                const res = await fetch(`${BACKEND_URL}/api/consultations/${id}`, {
+                    method: 'DELETE'
+                });
+                
+                if (res.ok) {
+                    fetchConsultations(); // Reload the table
+                } else {
+                    alert('Failed to delete query');
+                }
+            } catch (error) {
+                console.error('Error deleting:', error);
                 alert('An error occurred');
             }
         }
@@ -209,10 +229,11 @@
                 
                 let actionButton = '';
                 if (row.status === 'pending') {
-                    actionButton = `<button class="action-btn btn-mark-completed" onclick="toggleStatus(${row.id}, 'pending')">Mark Completed</button>`;
+                    actionButton = `<button class="action-btn btn-mark-completed" style="margin-bottom: 0.5rem; display: block; width: 100%;" onclick="toggleStatus(${row.id}, 'pending')">Mark Completed</button>`;
                 } else {
-                    actionButton = `<button class="action-btn btn-mark-pending" onclick="toggleStatus(${row.id}, 'completed')">Revert to Pending</button>`;
+                    actionButton = `<button class="action-btn btn-mark-pending" style="margin-bottom: 0.5rem; display: block; width: 100%;" onclick="toggleStatus(${row.id}, 'completed')">Revert to Pending</button>`;
                 }
+                actionButton += `<button class="action-btn" style="background-color: #ef4444; color: white; display: block; width: 100%;" onclick="deleteQuery(${row.id})">Delete</button>`;
 
                 return `
                     <tr>
@@ -228,6 +249,7 @@
                         <td>${row.conditions || 'None specified'}</td>
                         <td style="max-width: 250px; white-space: pre-wrap; font-size: 0.9rem;">${row.description || 'No description'}</td>
                         <td style="font-family: monospace; font-size: 0.85rem;">${row.razorpay_payment_id || '-'}</td>
+                        <td>${row.screenshot ? `<a href="${row.screenshot}" download="screenshot.png" style="color: blue; text-decoration: underline;">Download Screenshot</a>` : '-'}</td>
                         <td>
                             <span class="status-badge status-${row.status}">
                                 ${row.status === 'pending' ? 'Pending' : 'Completed'}
