@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                mobileMenuBtn.innerHTML = '&times;'; // close icon
+            } else {
+                mobileMenuBtn.innerHTML = '&#9776;'; // hamburger icon
+            }
+        });
+    }
+
     // Handle multi-language switch
     const langSelect = document.getElementById('langSelect');
     if (langSelect) {
@@ -32,30 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modal logic for Login/Signup
-    const loginBtn = document.getElementById('loginBtn');
-    const loginModal = document.getElementById('loginModal');
-    const closeModals = document.querySelectorAll('.close-modal');
-
-    if(loginBtn && loginModal) {
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModal.style.display = 'flex';
-        });
-    }
-
-    closeModals.forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
-        });
-    });
-
-    // Close modal on outside click
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal')) {
-            e.target.style.display = 'none';
-        }
-    });
+    
 
     // Dummy form submissions
     const forms = document.querySelectorAll('form');

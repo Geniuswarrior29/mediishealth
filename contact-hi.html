@@ -20,8 +20,8 @@
     <header class="header">
         <div class="container flex-between">
             <a href="index-hi.html" class="logo">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--primary)"><path d="M11 2v4c0 1.1-.9 2-2 2H5v4h4c1.1 0 2 .9 2 2v4h2v-4c0-1.1.9-2 2-2h4v-4h-4c-1.1 0-2-.9-2-2V2h-2z"/></svg>
-                मेडीस हेल्थ
+                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                मेडीस हेल्थ एंड लैब एंड लैब
             </a>
             <nav class="nav-links">
                 <a href="index-hi.html">मुख्य पृष्ठ</a>
@@ -29,25 +29,40 @@
                 <a href="about-hi.html">हमारे बारे में</a>
                 <a href="blog-hi.html">ब्लॉग</a>
                 <a href="contact-hi.html" class="active">संपर्क करें</a>
+                            
+                            
+                            
+                            
+                            
+                            
+            
+                
+            
+                
+            
+                <div class="header-actions">
+                    <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;">
+                        <option value="en">Eng</option>
+                        <option value="hi" selected>हिन्दी</option>
+                    </select>
+                    <a href="book-consultation-hi.html" class="btn btn-primary" style="color: white !important;">परामर्श बुक करें</a>
+                </div>
             </nav>
-            <div class="header-actions">
-                <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;"><option value="en">Eng</option><option value="hi" selected>हिन्दी</option></select>
-                <button class="btn btn-primary" id="loginBtn">लॉगिन / साइन अप</button>
-            </div>
+            <button class="mobile-menu-btn">&#9776;</button>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         </div>
     </header>
 
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 style="margin-bottom: 1.5rem;">वापसी पर स्वागत है</h2>
-            <form id="loginForm">
-                <div class="form-group"><label>ईमेल या फोन</label><input type="text" required placeholder="ईमेल या फोन दर्ज करें (+91)"></div>
-                <div class="form-group"><label>पासवर्ड</label><input type="password" required placeholder="अपना पासवर्ड दर्ज करें"></div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">लॉगिन करें</button>
-            </form>
-        </div>
-    </div>
+    
 
     <!-- Page Content -->
     <section class="hero" style="padding: 4rem 0; text-align: center; margin-top: 2rem;">
