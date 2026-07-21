@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,9 +46,12 @@
     <!-- Header -->
     <header class="header">
         <div class="container flex-between">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
-                Mediis Health and Lab
+                        <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+                <div style="display: flex; flex-direction: column; line-height: 1.2;">
+                    <span>Mediis Health and Lab</span>
+                    <span style="font-size: 0.55em; font-weight: normal; margin-top: 2px; color: black;">( by M.E.S.F.)<br>भारत सरकार अधिकृत</span>
+                </div>
             </a>
             
             <nav class="nav-links">
@@ -89,8 +92,29 @@
                     <a href="book-consultation.html" class="btn btn-primary">Book Consultation</a>
                 </div>
             </div>
-            <div class="hero-image fade-in-up" style="animation-delay: 0.2s;">
-                <img src="https://i.pinimg.com/736x/18/96/59/18965902b661ccbae66d01d72211ed5c.jpg" alt="Doctor Consultation">
+                        <div class="hero-image fade-in-up" style="animation-delay: 0.2s;">
+                <img id="hero-slider-img" src="https://i.pinimg.com/736x/18/96/59/18965902b661ccbae66d01d72211ed5c.jpg" alt="Doctor Consultation" style="transition: opacity 0.5s ease-in-out;">
+                <script>
+                    const sliderImages = [
+                        "https://i.pinimg.com/736x/18/96/59/18965902b661ccbae66d01d72211ed5c.jpg",
+                        "slider1.jpg",
+                        "slider2.jpg",
+                        "slider3.jpg",
+                        "slider4.jpg"
+                    ];
+                    let currentImageIndex = 0;
+                    const sliderImgElement = document.getElementById('hero-slider-img');
+                    if (sliderImages.length > 1) {
+                        setInterval(() => {
+                            sliderImgElement.style.opacity = 0;
+                            setTimeout(() => {
+                                currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
+                                sliderImgElement.src = sliderImages[currentImageIndex];
+                                sliderImgElement.style.opacity = 1;
+                            }, 500);
+                        }, 2000);
+                    }
+                </script>
             </div>
         </div>
     </section>
@@ -273,4 +297,7 @@
     <script src="app.js"></script>
 </body>
 </html>
+
+
+
 
