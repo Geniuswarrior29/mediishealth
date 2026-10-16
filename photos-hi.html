@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>फ़ोटो गैलरी | मेडीस हेल्थ सर्विसेज</title>
+    <meta name="description" content="मेडीस हेल्थ सर्विसेज की फ़ोटो गैलरी देखें - आयुर्वेदिक टेली-परामर्श, प्राकृतिक जड़ी-बूटी उपचार, क्लिनिकल सुविधाएं और मरीज देखभाल यात्रा।">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="header-brand-wrap">
+                <a href="index-hi.html" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="brand-title">मेडीस हेल्थ सर्विसेज</span>
+                        <span class="brand-sub">( by M.E.S.F.)<br>भारत सरकार अधिकृत</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="header-right-tools">
+                <div class="quick-nav-buttons">
+                    <a href="photos-hi.html" class="quick-nav-btn active">
+                        <span class="btn-icon">📸</span> फ़ोटो
+                    </a>
+                    <a href="blog-hi.html" class="quick-nav-btn ">
+                        <span class="btn-icon">📝</span> ब्लॉग
+                    </a>
+                    <a href="videos-hi.html" class="quick-nav-btn quick-nav-videos ">
+                        <span class="btn-icon">🎥</span> वीडियो
+                        <span class="badge-coming-soon">जल्द आ रहा है</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="मेनू खोलें">&#9776;</button>
+            </div>
+
+            <nav class="nav-links">
+                <div class="drawer-header">
+                    <span class="drawer-title">मेन्यू</span>
+                    <button class="drawer-close-btn" aria-label="बंद करें">&times;</button>
+                </div>
+                <a href="index-hi.html" class="">मुख्य पृष्ठ</a>
+                <a href="services-hi.html" class="">सेवाएं</a>
+                <a href="photos-hi.html" class="active">फ़ोटो</a>
+                <a href="blog-hi.html" class="">ब्लॉग</a>
+                <a href="videos-hi.html" class="">वीडियो <span class="badge-coming-soon">जल्द आ रहा है</span></a>
+                <a href="about-hi.html" class="">हमारे बारे में</a>
+                <a href="contact-hi.html" class="">संपर्क करें</a>
+
+                <div class="header-actions">
+                    <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;">
+                        <option value="en">Eng</option>
+                        <option value="hi" selected>हिन्दी</option>
+                    </select>
+                    <a href="book-consultation-hi.html" class="btn btn-primary" style="color: white !important;">परामर्श बुक करें</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header / Hero -->
+    <section class="hero" style="padding: 3.5rem 0 2.5rem;">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1>हमारी स्वास्थ्य यात्रा - फ़ोटो गैलरी</h1>
+                <p>हमारे समग्र आयुर्वेदिक उपचार, विशेषज्ञ डॉक्टरों के टेली-परामर्श, प्राकृतिक औषधियों और समर्पित सहायता डेस्क की एक झलक देखें।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section container">
+        <!-- Category Filters -->
+        <div class="gallery-filters fade-in-up">
+            <button class="filter-btn active" data-filter="all">सभी फ़ोटो</button>
+            <button class="filter-btn" data-filter="consultation">टेली-परामर्श</button>
+            <button class="filter-btn" data-filter="herbs">आयुर्वेदिक जड़ी-बूटियाँ</button>
+            <button class="filter-btn" data-filter="therapy">पंचकर्म व थेरेपी</button>
+            <button class="filter-btn" data-filter="support">मरीज सहायता</button>
+        </div>
+
+        <!-- Photos Grid -->
+        <div class="gallery-grid fade-in-up" style="animation-delay: 0.15s;">
+            <!-- Item 1 -->
+            <div class="gallery-card" data-category="consultation">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="डॉक्टर टेली-परामर्श">
+                    <span class="gallery-card-badge">टेली-परामर्श</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>डॉक्टर टेली-परामर्श</h3>
+                    <p>घर बैठे विशेषज्ञ आयुर्वेदिक डॉक्टरों से वन-ऑन-वन वीडियो परामर्श और व्यक्तिगत स्वास्थ्य मार्गदर्शन।</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-card" data-category="herbs">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="प्राकृतिक आयुर्वेदिक औषधियाँ">
+                    <span class="gallery-card-badge">आयुर्वेदिक जड़ी-बूटियाँ</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>शुद्ध हर्बल औषधियाँ</h3>
+                    <p>पारंपरिक विधि द्वारा तैयार की गई शुद्ध और असरदार वानस्पतिक औषधियां और प्राकृतिक चूर्ण।</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-card" data-category="support">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="आयुष्मान कार्ड सहायता">
+                    <span class="gallery-card-badge">मरीज सहायता</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>सरकारी योजना सहायता डेस्क</h3>
+                    <p>आयुष्मान भारत कार्ड और मुख्यमंत्री राहत कोष (CM Fund) सहायता के लिए दस्तावेजों में संपूर्ण मार्गदर्शन।</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-card" data-category="therapy">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="योग व समग्र उपचार">
+                    <span class="gallery-card-badge">पंचकर्म व थेरेपी</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>समग्र शारीरिक और मानसिक उपचार</h3>
+                    <p>वात, पित्त और कफ दोषों को संतुलित करने के लिए विशेष योग आसन और जीवनशैली में सुधार।</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-card" data-category="consultation">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://i.pinimg.com/736x/18/96/59/18965902b661ccbae66d01d72211ed5c.jpg" alt="क्लिनिकल डायग्नोसिस">
+                    <span class="gallery-card-badge">टेली-परामर्श</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>गहन रोगी परामर्श एवं जांच</h3>
+                    <p>रोग के मूल कारण को समझने के लिए विस्तृत केस हिस्ट्री और चरणबद्ध स्वास्थ्य योजना।</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-card" data-category="herbs">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="औषधीय तेल और काढ़े">
+                    <span class="gallery-card-badge">आयुर्वेदिक जड़ी-बूटियाँ</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>औषधीय तेल एवं काढ़े</h3>
+                    <p>पुराने जोड़ों के दर्द, गठिया और त्वचा संबंधी समस्याओं के लिए विशेष प्राकृतिक तेल और अर्क।</p>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-card" data-category="support">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="सर्जरी सलाह डेस्क">
+                    <span class="gallery-card-badge">मरीज सहायता</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>निष्पक्ष सर्जरी मार्गदर्शन</h3>
+                    <p>सुझाई गई सर्जरी पर वरिष्ठ डॉक्टरों द्वारा निष्पक्ष दूसरी राय ताकि आप सही निर्णय ले सकें।</p>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-card" data-category="therapy">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1512290900672-1f55b9a896a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="डिटॉक्स व कायाकल्प">
+                    <span class="gallery-card-badge">पंचकर्म व थेरेपी</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>डिटॉक्सिफिकेशन और कायाकल्प</h3>
+                    <p>शरीर से विषैले तत्वों को बाहर निकालकर ऊर्जा और प्रतिरोधक क्षमता बढ़ाने वाली प्राकृतिक विधियां।</p>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-card" data-category="consultation">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="आहार व पोषण योजना">
+                    <span class="gallery-card-badge">टेली-परामर्श</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>आहार एवं पोषण योजना</h3>
+                    <p>डायबिटीज, बीपी और पाचन समस्याओं के लिए सात्विक व संतुलित खान-पान का व्यक्तिगत चार्ट।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div style="margin-top: 4rem; text-align: center; background: linear-gradient(135deg, var(--accent) 0%, #FFFFFF 100%); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem 1.5rem;" class="fade-in-up">
+            <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">क्या आपको विशेषज्ञ चिकित्सा सलाह चाहिए?</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem;">अपने स्वास्थ्य के स्थायी समाधान के लिए आज ही हमारे अनुभवी डॉक्टरों से परामर्श बुक करें।</p>
+            <a href="book-consultation-hi.html" class="btn btn-primary">अभी परामर्श बुक करें</a>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="बंद करें">&times;</button>
+            <img src="" alt="बड़ा दृश्य">
+            <div class="lightbox-details">
+                <h3 class="lightbox-title" style="margin-bottom: 0.35rem; color: var(--primary-dark);"></h3>
+                <p class="lightbox-desc" style="font-size: 0.9rem; color: var(--text-muted);"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index-hi.html" class="logo" style="color: white;">मेडीस हेल्थ सर्विसेज</a>
+                    <p>पुरानी बीमारियों, सर्जरी और सरकारी उपचार फंड सहायता के लिए विशेषज्ञ आयुर्वेदिक टेली-परामर्श प्रदान करना।</p>
+                </div>
+                <div>
+                    <h4>त्वरित लिंक</h4>
+                    <ul class="footer-links">
+                        <li><a href="about-hi.html">हमारे बारे में</a></li>
+                        <li><a href="services-hi.html">हमारी सेवाएं</a></li>
+                        <li><a href="photos-hi.html">फ़ोटो गैलरी</a></li>
+                        <li><a href="blog-hi.html">नवीनतम ब्लॉग</a></li>
+                        <li><a href="videos-hi.html">वीडियो</a></li>
+                        <li><a href="contact-hi.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">अक्सर पूछे जाने वाले प्रश्न</a></li>
+                        <li><a href="#">गोपनीयता नीति</a></li>
+                        <li><a href="#">सेवा की शर्तें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>न्यूज़लेटर</h4>
+                    <p style="color: #CBD5E1; margin-bottom: 0.5rem; font-size: 0.9rem;">स्वास्थ्य टिप्स और अपडेट के लिए सदस्यता लें।</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="आपका ईमेल पता" required>
+                        <button type="submit">जुड़ें</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 मेडीस हेल्थ सर्विसेज। सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

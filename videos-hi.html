@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>वीडियो और स्वास्थ्य हब (जल्द आ रहा है) | मेडीस हेल्थ सर्विसेज</title>
+    <meta name="description" content="मेडीस हेल्थ वीडियो परामर्श और स्वास्थ्य मास्टरक्लास जल्द आ रहे हैं! विशेषज्ञ आयुर्वेदिक डॉक्टरों की सलाह और उपचार वीडियो के लिए बने रहें।">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="header-brand-wrap">
+                <a href="index-hi.html" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="brand-title">मेडीस हेल्थ सर्विसेज</span>
+                        <span class="brand-sub">( by M.E.S.F.)<br>भारत सरकार अधिकृत</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="header-right-tools">
+                <div class="quick-nav-buttons">
+                    <a href="photos-hi.html" class="quick-nav-btn ">
+                        <span class="btn-icon">📸</span> फ़ोटो
+                    </a>
+                    <a href="blog-hi.html" class="quick-nav-btn ">
+                        <span class="btn-icon">📝</span> ब्लॉग
+                    </a>
+                    <a href="videos-hi.html" class="quick-nav-btn quick-nav-videos active">
+                        <span class="btn-icon">🎥</span> वीडियो
+                        <span class="badge-coming-soon">जल्द आ रहा है</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="मेनू खोलें">&#9776;</button>
+            </div>
+
+            <nav class="nav-links">
+                <div class="drawer-header">
+                    <span class="drawer-title">मेन्यू</span>
+                    <button class="drawer-close-btn" aria-label="बंद करें">&times;</button>
+                </div>
+                <a href="index-hi.html" class="">मुख्य पृष्ठ</a>
+                <a href="services-hi.html" class="">सेवाएं</a>
+                <a href="photos-hi.html" class="">फ़ोटो</a>
+                <a href="blog-hi.html" class="">ब्लॉग</a>
+                <a href="videos-hi.html" class="active">वीडियो <span class="badge-coming-soon">जल्द आ रहा है</span></a>
+                <a href="about-hi.html" class="">हमारे बारे में</a>
+                <a href="contact-hi.html" class="">संपर्क करें</a>
+
+                <div class="header-actions">
+                    <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;">
+                        <option value="en">Eng</option>
+                        <option value="hi" selected>हिन्दी</option>
+                    </select>
+                    <a href="book-consultation-hi.html" class="btn btn-primary" style="color: white !important;">परामर्श बुक करें</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="hero" style="padding: 4rem 0 3rem;">
+        <div class="container">
+            <div class="video-coming-hero fade-in-up">
+                <span class="video-coming-badge">🎬 वीडियो हब • जल्द आ रहा है</span>
+                <h1>विशेषज्ञ वीडियो गाइड और डॉक्टर मास्टरक्लास</h1>
+                <p>हम विशेष वीडियो श्रृंखला तैयार कर रहे हैं जिसमें पुरानी बीमारियों का आयुर्वेदिक प्रबंधन, संतुलित खान-पान के नियम, आयुष्मान कार्ड बनाने की चरणबद्ध विधि और मरीजों के ठीक होने की सच्ची कहानियाँ शामिल हैं।</p>
+                
+                <div class="hero-buttons">
+                    <a href="#notify" class="btn btn-primary">शुरू होने पर सूचना पाएं</a>
+                    <a href="book-consultation-hi.html" class="btn btn-outline">डॉक्टर से सीधा परामर्श लें</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Videos Preview Grid -->
+    <section class="section container">
+        <div class="section-title fade-in-up">
+            <h2>आगामी वीडियो श्रृंखला</h2>
+            <p>हमारे डॉक्टरों और विशेषज्ञों द्वारा तैयार किए जा रहे आगामी वीडियो सत्रों की एक झलक:</p>
+        </div>
+
+        <div class="video-cards-grid fade-in-up" style="animation-delay: 0.15s;">
+            <!-- Card 1 -->
+            <div class="video-card">
+                <div class="video-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="दोष समझें">
+                    <span class="video-play-btn">▶</span>
+                    <span class="video-tag-soon">जल्द आ रहा है</span>
+                </div>
+                <div class="video-card-body">
+                    <h3>अपने शरीर की प्रकृति को समझें: वात, पित्त और कफ</h3>
+                    <p>जानें कि आपकी शारीरिक प्रकृति क्या है और कैसे त्रिदोष को संतुलित करके पुरानी बीमारियों से मुक्ति पाई जा सकती है।</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="video-card">
+                <div class="video-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="आयुष्मान कार्ड ट्यूटोरियल">
+                    <span class="video-play-btn">▶</span>
+                    <span class="video-tag-soon">जल्द आ रहा है</span>
+                </div>
+                <div class="video-card-body">
+                    <h3>मुख्यमंत्री राहत कोष व आयुष्मान कार्ड के लिए आवेदन कैसे करें</h3>
+                    <p>आवश्यक दस्तावेज, अस्पताल का खर्च अनुमान प्रमाण पत्र और आवेदन प्रक्रिया पर चरणबद्ध वीडियो गाइड।</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="video-card">
+                <div class="video-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="सर्जरी सलाह">
+                    <span class="video-play-btn">▶</span>
+                    <span class="video-tag-soon">जल्द आ रहा है</span>
+                </div>
+                <div class="video-card-body">
+                    <h3>क्या सर्जरी वास्तव में आवश्यक है? निष्पक्ष दूसरी राय</h3>
+                    <p>वरिष्ठ सर्जन और आयुर्वेदिक चिकित्सक समझाते हैं कि ऑपरेशन की सलाह का वस्तुनिष्ठ मूल्यांकन कैसे करें।</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="video-card">
+                <div class="video-card-thumb">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="गठिया और जोड़ों का दर्द">
+                    <span class="video-play-btn">▶</span>
+                    <span class="video-tag-soon">जल्द आ रहा है</span>
+                </div>
+                <div class="video-card-body">
+                    <h3>आहार चिकित्सा से जोड़ों के दर्द व गठिया में राहत</h3>
+                    <p>सूजन रोधी घरेलू जड़ी-बूटियाँ, काढ़े बनाने के तरीके और दैनिक हल्के व्यायामों का व्यावहारिक प्रदर्शन।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notify Me Card -->
+        <div id="notify" class="notify-card fade-in-up">
+            <h3>सबसे पहले देखने के लिए जुड़ें</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">जैसे ही हमारे वीडियो एपिसोड और लाइव प्रश्नोत्तरी सत्र शुरू होंगे, आपको ईमेल पर सीधा लिंक मिल जाएगा।</p>
+            <form id="notifyForm" class="notify-form">
+                <input type="email" placeholder="अपना ईमेल पता दर्ज करें" required>
+                <button type="submit" class="btn btn-primary">मुझे सूचित करें</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index-hi.html" class="logo" style="color: white;">मेडीस हेल्थ सर्विसेज</a>
+                    <p>पुरानी बीमारियों, सर्जरी और सरकारी उपचार फंड सहायता के लिए विशेषज्ञ आयुर्वेदिक टेली-परामर्श प्रदान करना।</p>
+                </div>
+                <div>
+                    <h4>त्वरित लिंक</h4>
+                    <ul class="footer-links">
+                        <li><a href="about-hi.html">हमारे बारे में</a></li>
+                        <li><a href="services-hi.html">हमारी सेवाएं</a></li>
+                        <li><a href="photos-hi.html">फ़ोटो गैलरी</a></li>
+                        <li><a href="blog-hi.html">नवीनतम ब्लॉग</a></li>
+                        <li><a href="videos-hi.html">वीडियो</a></li>
+                        <li><a href="contact-hi.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">अक्सर पूछे जाने वाले प्रश्न</a></li>
+                        <li><a href="#">गोपनीयता नीति</a></li>
+                        <li><a href="#">सेवा की शर्तें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>न्यूज़लेटर</h4>
+                    <p style="color: #CBD5E1; margin-bottom: 0.5rem; font-size: 0.9rem;">स्वास्थ्य टिप्स और अपडेट के लिए सदस्यता लें।</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="आपका ईमेल पता" required>
+                        <button type="submit">जुड़ें</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 मेडीस हेल्थ सर्विसेज। सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

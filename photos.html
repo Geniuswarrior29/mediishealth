@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | Mediis Health Services</title>
+    <meta name="description" content="Explore our photo gallery featuring Ayurvedic tele-consultations, natural herbal treatments, clinical facilities, and patient care journeys at Mediis Health Services.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="brand-title">Mediis Health Services</span>
+                        <span class="brand-sub">( by M.E.S.F.)<br>भारत सरकार अधिकृत</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="header-right-tools">
+                <div class="quick-nav-buttons">
+                    <a href="photos.html" class="quick-nav-btn active">
+                        <span class="btn-icon">📸</span> Photos
+                    </a>
+                    <a href="blog.html" class="quick-nav-btn ">
+                        <span class="btn-icon">📝</span> Blogs
+                    </a>
+                    <a href="videos.html" class="quick-nav-btn quick-nav-videos ">
+                        <span class="btn-icon">🎥</span> Videos
+                        <span class="badge-coming-soon">Coming Soon</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation">&#9776;</button>
+            </div>
+
+            <nav class="nav-links">
+                <div class="drawer-header">
+                    <span class="drawer-title">Navigation Menu</span>
+                    <button class="drawer-close-btn" aria-label="Close menu">&times;</button>
+                </div>
+                <a href="index.html" class="">Home</a>
+                <a href="services.html" class="">Services</a>
+                <a href="photos.html" class="active">Photos</a>
+                <a href="blog.html" class="">Blogs</a>
+                <a href="videos.html" class="">Videos <span class="badge-coming-soon">Coming Soon</span></a>
+                <a href="about.html" class="">About Us</a>
+                <a href="contact.html" class="">Contact Us</a>
+
+                <div class="header-actions">
+                    <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;">
+                        <option value="en" selected>Eng</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                    <a href="book-consultation.html" class="btn btn-primary" style="color: white !important;">Book Consultation</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header / Hero -->
+    <section class="hero" style="padding: 3.5rem 0 2.5rem;">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1>Our Healing Journey in Pictures</h1>
+                <p>Take an inside look at our holistic Ayurvedic practices, doctor tele-consultations, herbal remedies, and dedicated patient support desk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section container">
+        <!-- Category Filters -->
+        <div class="gallery-filters fade-in-up">
+            <button class="filter-btn active" data-filter="all">All Photos</button>
+            <button class="filter-btn" data-filter="consultation">Tele-Consultation</button>
+            <button class="filter-btn" data-filter="herbs">Ayurvedic Herbs</button>
+            <button class="filter-btn" data-filter="therapy">Panchakarma & Therapy</button>
+            <button class="filter-btn" data-filter="support">Patient Support</button>
+        </div>
+
+        <!-- Photos Grid -->
+        <div class="gallery-grid fade-in-up" style="animation-delay: 0.15s;">
+            <!-- Item 1 -->
+            <div class="gallery-card" data-category="consultation">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Doctor Tele-Consultation">
+                    <span class="gallery-card-badge">Tele-Consultation</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Doctor Tele-Consultation</h3>
+                    <p>Experienced Ayurvedic specialists conducting one-on-one virtual diagnosis and tailored health counseling.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-card" data-category="herbs">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pure Ayurvedic Formulations">
+                    <span class="gallery-card-badge">Ayurvedic Herbs</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Pure Herbal Formulations</h3>
+                    <p>Traditional mortar and pestle preparation of authentic botanical remedies and therapeutic powders.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-card" data-category="support">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ayushman Card & Patient Support">
+                    <span class="gallery-card-badge">Patient Support</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Government Scheme Desk</h3>
+                    <p>Guiding underprivileged families through Ayushman card claims and CM relief fund processing.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-card" data-category="therapy">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Holistic Wellness & Yoga">
+                    <span class="gallery-card-badge">Panchakarma & Therapy</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Holistic Mind & Body Healing</h3>
+                    <p>Personalized yoga postures and therapeutic routines designed to balance Vata, Pitta, and Kapha.</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-card" data-category="consultation">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://i.pinimg.com/736x/18/96/59/18965902b661ccbae66d01d72211ed5c.jpg" alt="Clinical Diagnosis & Guidance">
+                    <span class="gallery-card-badge">Tele-Consultation</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Clinical Consultation & Care</h3>
+                    <p>Comprehensive patient history review, dietary analysis, and step-by-step root-cause treatment.</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-card" data-category="herbs">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Medicinal Herbs & Essential Oils">
+                    <span class="gallery-card-badge">Ayurvedic Herbs</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Medicinal Oils & Infusions</h3>
+                    <p>Carefully curated natural plant extracts and medicated oils for chronic pain relief and vitality.</p>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-card" data-category="support">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Surgery Advisory Desk">
+                    <span class="gallery-card-badge">Patient Support</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Unbiased Surgery Guidance</h3>
+                    <p>Expert second opinion on recommended surgical operations to help patients make informed decisions.</p>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-card" data-category="therapy">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1512290900672-1f55b9a896a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Natural Rejuvenation Therapy">
+                    <span class="gallery-card-badge">Panchakarma & Therapy</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Detoxification & Rejuvenation</h3>
+                    <p>Natural cleansing protocols that restore balance, flush toxins, and rejuvenate body tissues.</p>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-card" data-category="consultation">
+                <div class="gallery-card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Doctor Nutritionist Team">
+                    <span class="gallery-card-badge">Tele-Consultation</span>
+                    <div class="gallery-card-overlay">
+                        <span class="gallery-zoom-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <h3>Diet & Nutrition Planning</h3>
+                    <p>Personalized Sattvic meal routines tailored for diabetes, arthritis, gut issues, and hypertension.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div style="margin-top: 4rem; text-align: center; background: linear-gradient(135deg, var(--accent) 0%, #FFFFFF 100%); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem 1.5rem;" class="fade-in-up">
+            <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Need Expert Health Consultation?</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 1.5rem;">Connect directly with our panel of certified doctors for holistic treatment and medical support.</p>
+            <a href="book-consultation.html" class="btn btn-primary">Book Consultation Now</a>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close image preview">&times;</button>
+            <img src="" alt="Enlarged view">
+            <div class="lightbox-details">
+                <h3 class="lightbox-title" style="margin-bottom: 0.35rem; color: var(--primary-dark);"></h3>
+                <p class="lightbox-desc" style="font-size: 0.9rem; color: var(--text-muted);"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo" style="color: white;">Mediis Health Services</a>
+                    <p>Providing expert ayurvedic tele-consultation and guidance for chronic diseases, surgeries, and funding assistance.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="photos.html">Photo Gallery</a></li>
+                        <li><a href="blog.html">Latest Blog</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Newsletter</h4>
+                    <p style="color: #CBD5E1; margin-bottom: 0.5rem; font-size: 0.9rem;">Subscribe for health tips & updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Join</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mediis Health Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

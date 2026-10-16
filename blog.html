@@ -21,48 +21,56 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
-        <div class="container flex-between">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
-                Mediis Health and Lab
-            </a>
+        <div class="container header-container">
+            <div class="header-brand-wrap">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="brand-title">Mediis Health Services</span>
+                        <span class="brand-sub">( by M.E.S.F.)<br>भारत सरकार अधिकृत</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="header-right-tools">
+                <div class="quick-nav-buttons">
+                    <a href="photos.html" class="quick-nav-btn ">
+                        <span class="btn-icon">📸</span> Photos
+                    </a>
+                    <a href="blog.html" class="quick-nav-btn active">
+                        <span class="btn-icon">📝</span> Blogs
+                    </a>
+                    <a href="videos.html" class="quick-nav-btn quick-nav-videos ">
+                        <span class="btn-icon">🎥</span> Videos
+                        <span class="badge-coming-soon">Coming Soon</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation">&#9776;</button>
+            </div>
+
             <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="about.html">About</a>
-                <a href="blog.html" class="active">Blog</a>
-                <a href="contact.html">Contact</a>
-                            
-                            
-                            
-                            
-                            
-                            
-            
-                
-            
-                
-            
+                <div class="drawer-header">
+                    <span class="drawer-title">Navigation Menu</span>
+                    <button class="drawer-close-btn" aria-label="Close menu">&times;</button>
+                </div>
+                <a href="index.html" class="">Home</a>
+                <a href="services.html" class="">Services</a>
+                <a href="photos.html" class="">Photos</a>
+                <a href="blog.html" class="active">Blogs</a>
+                <a href="videos.html" class="">Videos <span class="badge-coming-soon">Coming Soon</span></a>
+                <a href="about.html" class="">About Us</a>
+                <a href="contact.html" class="">Contact Us</a>
+
                 <div class="header-actions">
                     <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;">
-                        <option value="en">Eng</option>
+                        <option value="en" selected>Eng</option>
                         <option value="hi">हिन्दी</option>
                     </select>
                     <a href="book-consultation.html" class="btn btn-primary" style="color: white !important;">Book Consultation</a>
                 </div>
             </nav>
-            <button class="mobile-menu-btn">&#9776;</button>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         </div>
     </header>
 

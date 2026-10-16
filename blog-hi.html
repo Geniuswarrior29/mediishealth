@@ -21,29 +21,48 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
-        <div class="container flex-between">
-            <a href="index-hi.html" class="logo">
-                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
-                मेडीस हेल्थ एंड लैब
-            </a>
+        <div class="container header-container">
+            <div class="header-brand-wrap">
+                <a href="index-hi.html" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                    <div class="logo-text">
+                        <span class="brand-title">मेडीस हेल्थ सर्विसेज</span>
+                        <span class="brand-sub">( by M.E.S.F.)<br>भारत सरकार अधिकृत</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="header-right-tools">
+                <div class="quick-nav-buttons">
+                    <a href="photos-hi.html" class="quick-nav-btn ">
+                        <span class="btn-icon">📸</span> फ़ोटो
+                    </a>
+                    <a href="blog-hi.html" class="quick-nav-btn active">
+                        <span class="btn-icon">📝</span> ब्लॉग
+                    </a>
+                    <a href="videos-hi.html" class="quick-nav-btn quick-nav-videos ">
+                        <span class="btn-icon">🎥</span> वीडियो
+                        <span class="badge-coming-soon">जल्द आ रहा है</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="मेनू खोलें">&#9776;</button>
+            </div>
+
             <nav class="nav-links">
-                <a href="index-hi.html">मुख्य पृष्ठ</a>
-                <a href="services-hi.html">सेवाएं</a>
-                <a href="about-hi.html">हमारे बारे में</a>
+                <div class="drawer-header">
+                    <span class="drawer-title">मेन्यू</span>
+                    <button class="drawer-close-btn" aria-label="बंद करें">&times;</button>
+                </div>
+                <a href="index-hi.html" class="">मुख्य पृष्ठ</a>
+                <a href="services-hi.html" class="">सेवाएं</a>
+                <a href="photos-hi.html" class="">फ़ोटो</a>
                 <a href="blog-hi.html" class="active">ब्लॉग</a>
-                <a href="contact-hi.html">संपर्क करें</a>
-                            
-                            
-                            
-                            
-                            
-                            
-            
-                
-            
-                
-            
+                <a href="videos-hi.html" class="">वीडियो <span class="badge-coming-soon">जल्द आ रहा है</span></a>
+                <a href="about-hi.html" class="">हमारे बारे में</a>
+                <a href="contact-hi.html" class="">संपर्क करें</a>
+
                 <div class="header-actions">
                     <select id="langSelect" style="padding: 0.5rem; border:1px solid var(--border); border-radius:4px; outline:none;">
                         <option value="en">Eng</option>
@@ -52,17 +71,6 @@
                     <a href="book-consultation-hi.html" class="btn btn-primary" style="color: white !important;">परामर्श बुक करें</a>
                 </div>
             </nav>
-            <button class="mobile-menu-btn">&#9776;</button>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         </div>
     </header>
 
